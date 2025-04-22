@@ -28,8 +28,7 @@ on:
                 #default: '3.2.0'
 
 env:
-    XY_USERNAME: ${{ secrets.XY_USERNAME_DEMO }}
-    XY_PASSWORD: ${{ secrets.XY_PASSWORD_DEMO }}
+    XYGEN_TOKEN: ${{ secrets.XYGEN_TOKEN }}
     XY_URL: ${{ secrets.XY_URL_DEMO }}
     XY_PRJ_NAME: GitHub-${{ github.event.repository.name }}
     PKG_NAME: ${{ github.event.inputs.dep-name }}
@@ -82,10 +81,12 @@ jobs:
                   fetch-depth: "0"
 
             # Runs a set of commands using the runners shell
-            - name: Download Xygeni Scanner
+            - name:
+                  Download Xygeni Scanner
+                  #curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u $XY_USERNAME -p $XY_PASSWORD -s $XY_URL -d ${GITHUB_WORKSPACE}/scanner
               run: |
                   echo Downloading Xygeni Scanner ....
-                  curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u $XY_USERNAME -p $XY_PASSWORD -s $XY_URL -d ${GITHUB_WORKSPACE}/scanner
+                  curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -t $XYGENI_TOKEN -s $XY_URL -d ${GITHUB_WORKSPACE}/scanner
 
             # Runs a set of commands using the runners shell
             - name: Execution Xygeni Scanner (vuln)
