@@ -94,7 +94,9 @@ jobs:
                   #curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u $XY_USERNAME -p $XY_PASSWORD -s $XY_URL -d ${GITHUB_WORKSPACE}/scanner
               run: |
                   echo Downloading Xygeni Scanner ....
-                  curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -t $XYGENI_TOKEN
+                  curl -sLO https://get.xygeni.io/latest/scanner/install.sh
+                  chmod +x install.sh
+                  ./install.sh -o -v -t $XYGENI_TOKEN
 
             # Runs a set of commands using the runners shell
             - name: Execution Xygeni Scanner (vuln)
