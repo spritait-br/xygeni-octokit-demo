@@ -25,7 +25,7 @@ on:
                 description: "Dep. Version"
                 required: true
                 default: "latest"
-                #default: '3.2.0'
+                #default: '4.1.3'
 
 env:
     XYGENI_TOKEN: ${{ secrets.XYGENI_TOKEN }}
@@ -34,7 +34,7 @@ env:
     PKG_NAME: ${{ github.event.inputs.dep-name }}
     PKG_VERSION: ${{ github.event.inputs.dep-version }}
     #PKG_MALWARE: ${{ github.event.inputs.dep-malware }}
-    NEW_DEP_VERSION: 4.0.3
+    NEW_DEP_VERSION: 4.1.3
 
 jobs:
     #
@@ -89,8 +89,7 @@ jobs:
               run: echo "${HOME}/.xygeni" >> $GITHUB_PATH
 
             # Runs a set of commands using the runners shell
-            - name:
-                  Download Xygeni Scanner
+            - name: Download Xygeni Scanner
               run: |
                   echo Downloading Xygeni Scanner ....
                   curl -sLO https://get.xygeni.io/latest/scanner/install.sh
