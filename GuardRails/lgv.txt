@@ -1,0 +1,17 @@
+on
+     any
+   when
+     severity = high
+   then
+      print_all:@print("--------metadata:" + metadata),
+      print_all:@print("--------metadata.scm:" + metadata.scm),
+      print_all:@print("------- metadata.scm.fullName:" + metadata.scm.fullName),
+      print_all:@print("--------report:" + report),
+      print_all:@print("--------report.metadata.projectName:" + report.metadata.projectName), 
+      print_action:@print("--------context:" + context),
+      print_status:@print("---- location.file: " + location.file),
+      print_status:@print("updating xxx commit status on repo: " + metadata.scm.fullName),
+      print_status_all:@print("updating YYYYYY commit status on repo: " + metadata),
+      print_action:@print("open ticket with: " + metadata.scm.fullName),
+      print_all:@print("high:" + @count($)),
+      @exitcode(167)

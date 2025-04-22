@@ -1,0 +1,7 @@
+on
+     any
+   when
+     severity = critical
+   then
+      print_all:@print("critical:" + @count($)),
+      @exitcode(167)
