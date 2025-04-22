@@ -60,6 +60,11 @@ jobs:
         # ref: ${{ github.event.pull_request.head.sha }}
 
         steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             - uses: actions/checkout@v4
               name: Checking out PR code
