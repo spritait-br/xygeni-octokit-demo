@@ -91,7 +91,6 @@ jobs:
             # Runs a set of commands using the runners shell
             - name:
                   Download Xygeni Scanner
-                  #curl -L https://get.xygeni.io/latest/scanner/install.sh | /bin/bash -s -- -u $XY_USERNAME -p $XY_PASSWORD -s $XY_URL -d ${GITHUB_WORKSPACE}/scanner
               run: |
                   echo Downloading Xygeni Scanner ....
                   curl -sLO https://get.xygeni.io/latest/scanner/install.sh
@@ -129,37 +128,5 @@ jobs:
                   echo "::notice $mw::$text"
 
                   exit $retVal
-              # - name: Execution Xygeni Scanner (vuln)
-              #   run: |
-              #       set +e
-              #       rm ./package-lock.json
-              #       cat ${GITHUB_WORKSPACE}/package.json
-              #       npm -v
-              #       echo Executing Xygeni scan ....
-              #       #${GITHUB_WORKSPACE}/scanner/xygeni scan --fail-on=critical --run="inventory,misconf,deps,suspectdeps" --no-conf-download -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/** --skip-detectors=any=low
-              #       ${GITHUB_WORKSPACE}/scanner/xygeni scan  -f none \
-              #               --fail-on="file:${GITHUB_WORKSPACE}/GuardRails/deps-critical.xyflow" \
-              #               --run="inventory,misconf,deps,suspectdeps" --no-conf-download \
-              #               -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/** --skip-detectors=any=low
-              #       #${GITHUB_WORKSPACE}/scanner/xygeni scan --fail-on=file:${GITHUB_WORKSPACE}/lgv.xyflow --include-collaborators -f none --run="inventory,misconf,codetamper" --no-conf-download -n ${{ env.XY_PRJ_NAME }} --dir ${GITHUB_WORKSPACE} -e **/scanner/**
-              #       retVal=$?
-              #       if [ $retVal -ne 0 ]; then
-              #         echo "======================================="
-              #         echo "Detected usage of Dep with Malware !!!! "
-              #         echo " => Dep. Name:    $PKG_NAME"
-              #         echo " => Dep. Version: $PKG_VERSION"
-              #         echo "Breaking the build to avoid malware !!!! "
-              #         echo "======================================="
-              #         text="Detected usage of Dependency ($mw) with Malware !!!! "
-              #         #echo "::error file=app.js,line=10,col=15::$text"
-              #         echo "::error $mw::$text"
-              #         text="Breaking the build to avoid malware infection !!!! "
-              #         #echo "::error file=app.js,line=10,col=15::$text"
-              #         echo "::error $mw::$text"
-              #       fi
-              #       text="No dependencies with malware detected!!!! "
-              #       echo "::notice $mw::$text"
-
-              #       exit $retVal
               env:
                   GITHUB_PAT: ${{ secrets.GH_PAT }}
