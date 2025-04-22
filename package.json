@@ -1,0 +1,18 @@
+{
+	"name": "xygeni-octokit-demo",
+	"private": true,
+	"version": "1.0.0",
+	"description": "SpritaIT: XYGENI Octokit Demo",
+	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/spritait-br/xygeni-octokit-demo.git"
+	},
+	"author": "SpritaIT",
+	"license": "ISC",
+	"type": "module",
+	"homepage": "https://spritait.com.br",
+	"dependencies": {
+		"octokit": "latest"
+	}
+}
