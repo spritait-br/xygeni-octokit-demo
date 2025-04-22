@@ -28,7 +28,7 @@ on:
                 #default: '3.2.0'
 
 env:
-    XYGEN_TOKEN: ${{ secrets.XYGEN_TOKEN }}
+    XYGENI_TOKEN: ${{ secrets.XYGENI_TOKEN }}
     XY_URL: ${{ secrets.XY_URL_DEMO }}
     XY_PRJ_NAME: GitHub-${{ github.event.repository.name }}
     PKG_NAME: ${{ github.event.inputs.dep-name }}
